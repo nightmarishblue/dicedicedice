@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+<!--    <TextView-->
+<!--        android:id="@+id/rollSizeHistory"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        android:text="12d"-->
+<!--        android:textAlignment="viewEnd"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/rollHistory"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/rollHistory" />-->
+
+    <TextView
+        android:id="@+id/diceRollResults"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:lines="1"
+        android:ellipsize="middle"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/removeDiceButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="1dp"
+        android:text="@string/remove_dice_button"
+        app:layout_constraintBottom_toBottomOf="@+id/diceNumber"
+        app:layout_constraintEnd_toStartOf="@+id/diceNumber" />
+
+    <Button
+        android:id="@+id/addDiceButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="@string/add_dice_button"
+        app:layout_constraintBottom_toBottomOf="@+id/diceNumber"
+        app:layout_constraintStart_toEndOf="@+id/diceNumber" />
+
+    <Button
+        android:id="@+id/rollDiceButton"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:text="⚄"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceNumber" />
+
+    <EditText
+        android:id="@+id/diceNumber"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="#"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/successCount" />
+
+    <TextView
+        android:id="@+id/successCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceRollResults" />
+
+    <TextView
+        android:id="@+id/rollHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ellipsize="end"
+        android:maxWidth="400dp"
+        android:minWidth="20dp"
+        android:text=""
+        android:textAlignment="center"
+        android:lineSpacingExtra="8sp"
+        android:textSize="18sp"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeTextType="uniform"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rollDiceButton" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/successHistory"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:text="400"-->
+<!--        android:textAlignment="viewStart"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/rollHistory"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/rollHistory" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
