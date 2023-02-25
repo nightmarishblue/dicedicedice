@@ -1,17 +1,15 @@
 package com.midnight.dicedicedice.ui.home
 
+import com.midnight.dicedicedice.R as nativeR
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.midnight.dicedicedice.databinding.FragmentHomeBinding
-import kotlin.random.Random
 
 class HomeFragment : Fragment() {
 
@@ -20,6 +18,8 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -48,7 +48,10 @@ class HomeFragment : Fragment() {
             if (binding.diceNumber.text.toString() != "") num = binding.diceNumber.text.toString().toInt()
             binding.diceNumber.setText(minOf(100, maxOf(0, num - 1)).toString())
         }
+        val rollHistory = arrayListOf<String>()
 
+        val rollHistAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, nativeR.layout.hist_list_view, rollHistory.asReversed())
+        //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
         binding.rollDiceButton.setOnClickListener {
             var numDice = 0
             if (binding.diceNumber.text.toString() != "") numDice = binding.diceNumber.text.toString().toInt()
@@ -56,18 +59,10 @@ class HomeFragment : Fragment() {
 
             // move current data into the other text box.
             if (binding.successCount.text != "") {
-                val successCount = binding.successCount.text.toString()
-                val dieResults = binding.diceRollResults.text.toString()
-                val rollSize = dieResults.length / 3
-                var oldHistory = binding.rollHistory.text.toString()
-                //Toast.makeText(context, oldHistory.count{it == '\n'}.toString(), Toast.LENGTH_SHORT).show()
-                if (oldHistory.count{it == '\n'} >= 8) {
-                    oldHistory = oldHistory.split("\n").slice(0..6).joinToString("\n") + "\n"//.joinToString { "\n" } //.slice(0..6).joinToString { "\n" }
-
+                if (rollHistory.size == 10) {
+                    rollHistory.removeFirst()
                 }
-                //val newHistory = text.split('\n').slice(0..1).joinToString("\n")
-                val newHistory =  "${rollSize}d  $dieResults  $successCount\n${oldHistory}"
-                binding.rollHistory.text = newHistory
+                rollHistory.add("${binding.diceRollResults.text.length / 3}d ${binding.diceRollResults.text} ${binding.successCount.text}"); rollHistAdapter.notifyDataSetChanged()
             }
 
             if (numDice != 0) {
@@ -89,7 +84,13 @@ class HomeFragment : Fragment() {
                 binding.successCount.text = ""
             }
             binding.diceNumber.setText(numDice.toString())
+            //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
+            //binding.ting.adapter = myAdapter
         }
+
+        //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
+        binding.rollHistory.adapter = rollHistAdapter
+        //myAdapter.notifyDataSetChanged()
 
         return root
     }

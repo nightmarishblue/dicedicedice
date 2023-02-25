@@ -70,7 +70,8 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/successCount" />
+        app:layout_constraintTop_toBottomOf="@+id/successCount"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/successCount"
@@ -82,36 +83,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diceRollResults" />
 
-    <TextView
+    <!-- Make this constraint layout fill the right space somehow so I can match parent?? -->
+
+    <ListView
         android:id="@+id/rollHistory"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ellipsize="end"
-        android:maxWidth="400dp"
-        android:minWidth="20dp"
-        android:text=""
-        android:textAlignment="center"
-        android:lineSpacingExtra="8sp"
-        android:textSize="18sp"
-        app:autoSizeMaxTextSize="18sp"
-        app:autoSizeMinTextSize="8sp"
-        app:autoSizeTextType="uniform"
+
+        android:layout_marginStart="12dp"
+
+        android:layout_marginEnd="12dp"
 
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rollDiceButton" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/successHistory"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="4dp"-->
-<!--        android:text="400"-->
-<!--        android:textAlignment="viewStart"-->
-<!--        android:textSize="16sp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/rollHistory"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/rollHistory" />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
