@@ -48,10 +48,9 @@ class HomeFragment : Fragment() {
             if (binding.diceNumber.text.toString() != "") num = binding.diceNumber.text.toString().toInt()
             binding.diceNumber.setText(minOf(100, maxOf(0, num - 1)).toString())
         }
-        val rollHistory = arrayListOf<String>()
 
+        val rollHistory = arrayListOf<String>()
         val rollHistAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, nativeR.layout.hist_list_view, rollHistory.asReversed())
-        //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
         binding.rollDiceButton.setOnClickListener {
             var numDice = 0
             if (binding.diceNumber.text.toString() != "") numDice = binding.diceNumber.text.toString().toInt()
@@ -84,13 +83,8 @@ class HomeFragment : Fragment() {
                 binding.successCount.text = ""
             }
             binding.diceNumber.setText(numDice.toString())
-            //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
-            //binding.ting.adapter = myAdapter
         }
-
-        //val myAdapter : ArrayAdapter<String> = ArrayAdapter(context!!, R.layout.simple_list_item_1, listOfStuff)
         binding.rollHistory.adapter = rollHistAdapter
-        //myAdapter.notifyDataSetChanged()
 
         return root
     }
