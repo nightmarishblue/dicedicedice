@@ -3,7 +3,7 @@
 
 ![relevant tech](https://skillicons.dev/icons?i=kotlin,androidstudio)
 
-Simple Android app to play Prowlers & Paragons, niche tabletop RPG with unique dice mechanics.
+Simple Android app to play [Prowlers & Paragons](https://www.drivethrurpg.com/en/product/346742/Prowlers--Paragons-Ultimate-Edition), niche tabletop RPG with unique dice mechanics.
 I made this because most *(if not all)* dice apps are completely D&D-focused, and I wanted to host a session or two of this game.
 
 If you're not familiar, Prowlers is a d6 pool system. 2s and 4s contribute 1 point towards success, and 6s contribute 2.
